@@ -1,0 +1,48 @@
+body, html {
+    height:100%
+    width:100%;
+    overflow:hidden;
+}
+
+.fractal {
+    height:200px;
+    width:300px;
+    margin-top:150px;
+    margin-left: 225px;
+}
+p {
+    color:white;
+}
+
+div {
+    background-color:black;
+    height:950px;
+    width:1680px;
+    overflow:hidden;
+}
+
+#right {
+    background-color:green;
+    width:750px;
+    height:500px;
+    position:absolute;
+    right:25px;
+    top:200px;
+    float: right;
+    border:2px solid white;
+    border-radius:10px;
+}
+
+
+#left {
+    background-color:red;
+    width:750px;
+    height:500px;
+    position: absolute;
+    left:25px;
+    top:200px;
+    float: left;
+    display:inline;
+    border:2px solid white;
+    border-radius:10px;
+}
