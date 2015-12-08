@@ -1,12 +1,30 @@
 <html>
+
   <head>
-   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-   <script src="../js/retrospective.js">
-   </script>
-</head>
-<body>
-<p id="test" onclick="clicked()">
-Test
-</p>
-</body>
+    <title> Choices </title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="../js/retrospective.js"></script>
+    <link rel="stylesheet" type="text/css" href=../css/retrospective.css>
+  </head>
+
+  <body>
+    <div id="background">
+      <input id="countpreTraining" value="0"/>
+      <input id="countTrainingA" value="0"/>
+      <input id="countTrainingB" value="0"/>
+      <input id="countTestReval" value="0"/>
+    </div>
+
+    <div id="instruction"> 
+      <p id="inst_message"> Please select on the items below </p>
+    </div>
+    <div id="right">
+      <img class="fractal" src="/home/penagos/code/retrospective/img/fractal1.jpg">
+    </div>
+    <div id="left"> 
+      <img class="fractal" src="/home/penagos/code/retrospective/img/fractal2.png">
+      <!--<p id="test" onclick="clicked()"> TEST </p> -->
+    </div>
+  </body>
+
 </html>
