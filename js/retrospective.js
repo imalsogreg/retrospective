@@ -36,4 +36,55 @@ var main = function(){
   */
 }
 
+function clickHandler() {
+    console.log('Ok, good choice');
+    setTimeout( advanceTrial, 2000 ); // Success advance
+}
+
+function starttrial() {
+    var timeoutTimer = setTimeout( timeoutHandler, 2000 ); // Trial time-out
+    setupTrialStuff();
+}
+
 $(document).ready(main);
+
+var state = "trialstarted"
+
+clickhandler = function(){
+    if (state == "trialstarted")
+        advancetrial();
+    elseif (state == "intro"){
+        return ();
+    } elseif (state == "trialfinished"){
+        return ();
+    }
+}
+
+// State machine "trialfinished" -> "trialstarted"
+function advancetrial() {
+    trialIndex++;
+    payouts = lookupPayoutSchedule(trialIndex);
+    state = "trialstarted";
+}
+
+// State machine what to do with clicks at different states
+timeoutHandler = function() {
+    if (state == "trialstarted"){
+        advancetrial;
+    } elseif (state=="intro") {
+        console.log('impossible case');
+    } elseif (state="trialfinished"){
+        return ();
+    }
+
+}
+
+/*
+
+ 1. Trial started (waiting for click)
+
+ 2. Person clicked (Saying "Good job")
+
+ 3. Intro screen
+
+ */
