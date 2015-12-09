@@ -4,12 +4,26 @@ body, html {
     overflow:hidden;
 }
 
+input[type="number"] {
+    display:none;
+}
+
+#inst_message {
+    height:100px;
+    margin-top:50px;
+    margin-left:600px;
+    font-color:white;
+    font-size:2em;
+    display:inline;
+
+}
 .fractal {
     height:200px;
     width:300px;
     margin-top:150px;
     margin-left: 225px;
 }
+
 p {
     color:white;
 }
@@ -21,7 +35,10 @@ div {
     overflow:hidden;
 }
 
-#right {
+.sel_box {
+    display:none;
+}
+#right_A {
     background-color:green;
     width:750px;
     height:500px;
@@ -31,10 +48,11 @@ div {
     float: right;
     border:2px solid white;
     border-radius:10px;
+    display:block;
 }
 
 
-#left {
+#left_A {
     background-color:red;
     width:750px;
     height:500px;
@@ -45,4 +63,5 @@ div {
     display:inline;
     border:2px solid white;
     border-radius:10px;
+    display:block;
 }
