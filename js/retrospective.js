@@ -31,17 +31,17 @@ function setUpTrial(rightid,leftid) {
         document.getElementById(rightid).style.display = "block";
         document.getElementById(rightid).style.left = "";
         document.getElementById(rightid).className = "sel_box";
-        
+
         document.getElementById(leftid).style.width = "750px";
         document.getElementById(leftid).style.height = "500px";
         document.getElementById(leftid).style.left = "25px";
         document.getElementById(leftid).style.top = "200px";
         document.getElementById(leftid).style.display = "block";
         document.getElementById(leftid).className = "sel_box";
-        
+
         document.getElementById("background").style.color = "black";
         document.getElementById("background").style.display = "block";
-        
+
         document.getElementById("instruction").style.display = "block";
         document.getElementById("inst_message").style.display = "block";
 
