@@ -73,8 +73,8 @@ function setUpTrial(rightid,leftid) {
 
         /* determine what to display depending in trial type*/
         if (counter[8] < Trial_type1) {
-            leftim.src = "../img/fractal1hr.jpg";
-            rightim.src = "../img/fractal2hr.jpg";
+            leftim.src = "img/fractal1hr.jpg";
+            rightim.src = "img/fractal2hr.jpg";
 
             leftdiv.style.backgroundColor = "#990000";
             rightdiv.style.backgroudColor = "#003300";
@@ -84,8 +84,8 @@ function setUpTrial(rightid,leftid) {
             instdiv.style.backgroundColor = "black";
         }
         else if (counter[8] < Trial_type1+Trial_type2){
-            leftim.src = "../img/fractal1hr.jpg";
-            rightim.src = "../img/fractal2hr.jpg";
+            leftim.src = "img/fractal1hr.jpg";
+            rightim.src = "img/fractal2hr.jpg";
 
             leftdiv.style.backgroundColor = "#990000";
             rightdiv.style.backgroudColor = "#003300";
@@ -97,8 +97,8 @@ function setUpTrial(rightid,leftid) {
             messp.innerHTML = "Please select one of the items above. <br> Compensation for your choice will be <br> shown in the following screen."
         }
         else if (counter[8] < Trial_type1+Trial_type2+Trial_type3){
-            leftim.src = "../img/fractal3hr.jpg";
-            rightim.src = "../img/fractal4hr.jpg";
+            leftim.src = "img/fractal3hr.jpg";
+            rightim.src = "img/fractal4hr.jpg";
 
             leftdiv.style.backgroundColor = "#ff6600";
             rightdiv.style.backgroundColor = "#9900ff";
@@ -106,13 +106,13 @@ function setUpTrial(rightid,leftid) {
             statediv.style.backgroundColor = "#003300";
             instdiv.style.backgroundColor = "#003300";
 
-            stateim.src = "../img/fractal2hr.jpg";
+            stateim.src = "img/fractal2hr.jpg";
 
             messp.innerHTML = "Please select one of the items above. <br> Compensation for your choice will be <br> revealed in the following screen."
         }
         else {
-            leftim.src = "../img/fractal5hr.jpg";
-            rightim.src = "../img/fractal6hr.jpg";
+            leftim.src = "img/fractal5hr.jpg";
+            rightim.src = "img/fractal6hr.jpg";
 
             leftdiv.style.backgroundColor = "#3333FF";
             rightdiv.style.backgroundColor = "#606060";
@@ -120,7 +120,7 @@ function setUpTrial(rightid,leftid) {
             statediv.style.backgroundColor = "#990000";
             instdiv.style.backgroundColor = "#990000";
 
-            stateim.src = "../img/fractal1hr.jpg";
+            stateim.src = "img/fractal1hr.jpg";
 
             messp.innerHTML = "Please select one of the items above. <br>Compensation for your choice will be <br> revealed in the following screen."
         }
@@ -200,11 +200,11 @@ var main = function(){
                 paydiv.style.height  = "70%";
                 if (id==='left_A') {
                     counter[2]++;
-                    payimg.src = "../img/penny.jpg";
+                    payimg.src = "img/penny.jpg";
                 }
                 else {
                     counter[3]++;
-                    payimg.src = "../img/quarter.jpg";
+                    payimg.src = "img/quarter.jpg";
                 }
             }
             else if (counter[8] < Trial_type1+Trial_type2+Trial_type3) {
@@ -212,11 +212,11 @@ var main = function(){
                 paydiv.style.backgroundColor = selectioncolor;
                 if (id==='left_A') {
                     counter[4]++;
-                    payimg.src = "../img/quarter.jpg";
+                    payimg.src = "img/quarter.jpg";
                 }
                 else {
                     counter[5]++;
-                    payimg.src = "../img/dollarbill.jpg";
+                    payimg.src = "img/dollarbill.jpg";
                 }
             }
             else if (counter[8] < maxTrials) {
@@ -224,11 +224,11 @@ var main = function(){
                 paydiv.style.backgroundColor = selectioncolor;
                  if (id==='left_A') {
                     counter[6]++;
-                    payimg.src = "../img/fivedollarbill.jpg";
+                    payimg.src = "img/fivedollarbill.jpg";
                 }
                 else {
                     counter[7]++;
-                    payimg.src = "../img/tendollarbill.jpg";
+                    payimg.src = "img/tendollarbill.jpg";
                 }
             }
             counter[8]++;
