@@ -6,17 +6,20 @@ body, html {
 
 #inst_message {
     position:absolute;
-    height:10%;
-    bottom:5%;
-    left:33%;
+    height:80%;
+    width:80%;
+    top:10%;
+    left:10%;
     font-color:white;
     font-size:3em;
     display:block;
+    text-align:center;
 }
 
 .fractal {
     height:60%;
     width:60%;
+    display:none;
 }
 
 p {
@@ -42,13 +45,13 @@ div {
 #right_A {
     background-color:#003300;
     width:33%;
-    height:33%;
+    height:66%;
     position:absolute;
     right:10%;
     top:33%;
     float:right;
     border:2px solid white;
-    border-radius:10px;
+    border-radius:50%;
     display:block;
 }
 
@@ -70,7 +73,7 @@ div {
     width:20%;
     position: absolute;
     left:40%;
-    bottom:5%;
+    bottom:35%;
 }
 
 #State {
