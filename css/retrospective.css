@@ -16,12 +16,6 @@ body, html {
     text-align:center;
 }
 
-.fractal {
-    height:60%;
-    width:60%;
-    display:none;
-}
-
 p {
     color:white;
 }
@@ -31,6 +25,8 @@ div {
     height:100%;
     width:100%;
     overflow:hidden;
+    top:0px;
+    left:0px;
 }
 
 #mess_div {
@@ -74,12 +70,4 @@ div {
     position: absolute;
     left:40%;
     bottom:35%;
-}
-
-#State {
-    height:20%;
-    width:20%;
-    position:absolute;
-    left:40%;
-    top:5%;
 }

@@ -1,8 +1,8 @@
 /* Number of trials by type */
 var trialT1 = 2;
-var trialT2 = 2;
-var trialT3 = 2;
-var trialT4 = 2;
+var trialT2 = 4;
+var trialT3 = 4;
+var trialT4 = 4;
 var maxTrials = trialT1+trialT2+trialT3+trialT4;
 
 var click_time = 0;                  /* Timestamp click events */
@@ -19,7 +19,169 @@ var payoutsch = [0,0,0.10,0.25,0.25,1,5,10];    /* Payout schedule*/
 var active = true;                /* Controls when clicking is available */
 var newblock = true;              /* Controls whether to display instructions*/
 
+/* Define geometric shapes */
 
+function DrawTriangleUp(el,color,bkncolor,ro,lo){
+    /* Determine the window's dimensions to size the triangle */
+    var winWidth = window.innerWidth;
+    var winHeight = window.innerHeight;
+    var sidebd = Math.round(0.20*winWidth) + "px";
+    var botbd = Math.round(0.40*winHeight) + "px";
+
+    el.style.border = "initial";
+    el.style.borderRadius = "0";
+    el.style.width = "0";
+    el.style.height = "0";
+    el.style.borderLeft = "solid transparent";
+    el.style.borderLeftWidth = sidebd;
+    el.style.borderRight = "solid transparent";
+    el.style.borderRightWidth = sidebd;
+    el.style.borderTop = "0";
+    el.style.borderBottomStyle = "solid";
+    el.style.borderBottomColor = color;
+    el.style.borderBottomWidth = botbd;
+    el.style.display = "block";
+    el.style.backgroundColor = bkncolor;
+    el.style.top = "30%";
+    el.style.left = lo;
+    el.style.right = ro;
+};
+
+function DrawTriangleDn(el,color,bkncolor,ro,lo){
+    /* Determine the window's dimensions to size the triangle */
+    var winWidth = window.innerWidth;
+    var winHeight = window.innerHeight;
+    var sidebd = Math.round(0.20*winWidth) + "px";
+    var topbd = Math.round(0.40*winHeight) + "px";
+
+    el.style.border = "initial";
+    el.style.borderRadius = "0";
+    el.style.width = "0";
+    el.style.height = "0";
+    el.style.borderLeft = "solid transparent";
+    el.style.borderLeftWidth = sidebd;
+    el.style.borderRight = "solid transparent";
+    el.style.borderRightWidth = sidebd;
+    el.style.borderTopStyle = "solid ";
+    el.style.borderTopColor = color;
+    el.style.borderTopWidth = topbd;
+    el.style.borderBottom = "0";
+    el.style.display = "block";
+    el.style.backgroundColor = bkncolor;
+    el.style.top = "30%";
+    el.style.left = lo;
+    el.style.right = ro;
+};
+
+function DrawTrapezoid(el,color,bkncolor,ro,lo){
+    /* Determine the window's dimensions to size the trapezoid */
+    var winWidth = window.innerWidth;
+    var winHeight = window.innerHeight;
+    var sidebd = Math.round(0.10*winWidth) + "px";
+    var elwidth = Math.round(0.20*winWidth) + "px";
+    var botbd = Math.round(0.40*winHeight) + "px";
+
+    el.style.border = "initial";
+    el.style.borderRadius = "0";
+    el.style.width = elwidth;
+    el.style.height = "0";
+    el.style.borderLeft = "solid transparent";
+    el.style.borderLeftWidth = sidebd;
+    el.style.borderRight = "solid transparent";
+    el.style.borderRightWidth = sidebd;
+    el.style.borderTop = "0";
+    el.style.borderBottomStyle = "solid ";
+    el.style.borderBottomWidth = botbd;
+    el.style.borderBottomColor = color;
+    el.style.display = "block";
+    el.style.backgroundColor = bkncolor;
+    el.style.top = "30%";
+    el.style.left = lo;
+    el.style.right = ro;
+};
+
+function DrawRectangle(el,color,ro,lo){
+    /* Determine the window's dimensions to size the rectangle */
+    var winWidth = window.innerWidth;
+    var winHeight = window.innerHeight;
+    var elwidth = Math.round(0.40*winWidth) + "px";
+    var elheight = Math.round(0.40*winHeight) + "px";
+
+    el.style.border = "initial";
+    el.style.borderRadius = "0";
+    el.style.width = elwidth;
+    el.style.height = elheight;
+    el.style.borderLeft = "0";
+    el.style.borderRight = "0";
+    el.style.borderTop = "0";
+    el.style.borderBottom = "0";
+    el.style.display = "block";
+    el.style.backgroundColor = color;
+    el.style.top = "30%";
+    el.style.left = lo;
+    el.style.right = ro;
+};
+
+function DrawSquare(el,color,ro,lo){
+    /* Determine the window's dimensions to size the square */
+    var winWidth = window.innerWidth;
+    var winHeight = window.innerHeight;
+    var elwidth = Math.round(0.35*winWidth) + "px";
+    var topDist = Math.round((winHeight-elwidth)/2) + "px";
+
+    el.style.border = "initial";
+    el.style.borderRadius = "0";
+    el.style.width = elwidth;
+    el.style.height = elwidth;
+    el.style.borderLeft = "0";
+    el.style.borderRight = "0";
+    el.style.borderTop = "0";
+    el.style.borderBottom = "0";
+    el.style.display = "block";
+    el.style.backgroundColor = color;
+    el.style.top = "30%";
+    el.style.left = lo;
+    el.style.right = ro;
+};
+
+function DrawCircle(el,color,ro,lo){
+    /* Determine the window's dimensions to size the circle */
+    var winWidth = window.innerWidth;
+    var winHeight = window.innerHeight;
+    var elwidth = Math.round(0.35*winWidth) + "px";
+    var topDist = Math.round((winHeight-elwidth)/2) + "px";
+    el.style.border = "initial";
+    el.style.borderRadius = "50%";
+    el.style.width = elwidth;
+    el.style.height = elwidth;
+    el.style.borderLeft = "0";
+    el.style.borderRight = "0";
+    el.style.borderTop = "0";
+    el.style.borderBottom = "0";
+    el.style.display = "block";
+    el.style.backgroundColor = color;
+    el.style.top = "30%";
+    el.style.left = lo;
+    el.style.right = ro;
+};
+
+function whichColor(el){
+    var topColor = el.style.borderTopColor;
+    var botColor = el.style.borderBottomColor;
+    var bknColor = el.style.backgroundColor;
+
+    if (topColor===botColor){
+        return bknColor;
+    }
+    else {
+        if (topColor==="initial"){
+            return botColor;
+        }
+        else {
+            return topColor;
+        }
+    }
+};
 
 /*This function determines what messages to display on each trial*/
 function displayMessage(){
@@ -102,94 +264,47 @@ function setUpTrial(rightid,leftid) {
     var paydiv = document.getElementById("outcomescreen");
     var instdiv = document.getElementById("instruction");
 
-    var rightim = document.getElementById("right_img");
-    var leftim = document.getElementById("left_img");
-    var stateim = document.getElementById("State");
     var payoutim = document.getElementById("Payout");
     var messp = document.getElementById("inst_message");
 
     if (counter[8] < maxTrials) {
-        /* format choice on right side*/
-        rightdiv.style.width = "40%";
-        rightdiv.style.height = "50%";
-        rightdiv.style.right = "5%";
-        rightdiv.style.top = "25%";
-        rightdiv.style.display = "block";
-        rightdiv.style.left = "";
-        rightdiv.style.borderRadius = "50%";
-        /* format choice on left side*/
-        leftdiv.style.width = "40%";
-        leftdiv.style.height = "40%";
-        leftdiv.style.left = "5%";
-        leftdiv.style.top = "30%";
-        leftdiv.style.display = "block";
-        leftdiv.style.borderRadius = "10px";
 
         /* make state screen visible*/
         statediv.style.display = "block";
         statediv.style.width = "100%";
         statediv.style.height = "100%";
-        statediv.style.top = "0%";
+        statediv.style.top = "0px";
+        statediv.style.left = "0px";
         /* make payout screen NOT visible*/
         paydiv.style.display = "none";
         paydiv.style.width = "100%";
         paydiv.style.height = "100%";
-
-        /* format fractal images*/
-        leftim.style.width = "60%";
-        leftim.style.height = "60%";
-        leftim.style.left = "20%";
-        leftim.style.top = "15%";
-        /*leftim.style.display = "block";*/
-
-        rightim.style.width = "60%";
-        rightim.style.height = "60%";
-        rightim.style.left = "20%";
-        rightim.style.top = "15%";
-        /*rightim.style.display = "block";*/
+        paydiv.style.top = "0px";
+        paydiv.style.left = "0px";
 
         /* determine what to display depending in trial type*/
         if (counter[8] < trialT1) {
-            leftim.src = "img/fractal1hr.jpg";
-            rightim.src = "img/fractal2hr.jpg";
-
-            leftdiv.style.backgroundColor = "#990000";
-            rightdiv.style.backgroudColor = "#003300";
+            DrawTriangleUp(rightdiv,"#003300","black","5%","55%");
+            DrawTriangleDn(leftdiv,"#990000","black","55%","5%");
 
             statediv.style.backgroundColor = "black";
-            stateim.style.display = "none";
         }
         else if (counter[8] < trialT1+trialT2){
-            leftim.src = "img/fractal1hr.jpg";
-            rightim.src = "img/fractal2hr.jpg";
-
-            leftdiv.style.backgroundColor = "#990000";
-            rightdiv.style.backgroudColor = "#003300";
+            DrawTriangleUp(rightdiv,"#003300","black","5%","55%");
+            DrawTriangleDn(leftdiv,"#990000","black","55%","5%");
 
             statediv.style.backgroundColor = "black";
-            stateim.style.display = "none";
         }
         else if (counter[8] < trialT1+trialT2+trialT3){
-            leftim.src = "img/fractal3hr.jpg";
-            rightim.src = "img/fractal4hr.jpg";
-
-            leftdiv.style.backgroundColor = "#ff6600";
-            rightdiv.style.backgroundColor = "#9900ff";
+            DrawSquare(rightdiv,"#9900ff","7.5%","57.5%");
+            DrawCircle(leftdiv,"#ff6600","57.5%","7.5%");
 
             statediv.style.backgroundColor = "#003300";
-            stateim.src = "img/fractal2hr.jpg";
-            /*stateim.style.display = "block";*/
         }
         else {
-            leftim.src = "img/fractal5hr.jpg";
-            rightim.src = "img/fractal6hr.jpg";
-
-            leftdiv.style.backgroundColor = "#3333FF";
-            rightdiv.style.backgroundColor = "#606060";
-
+            DrawTrapezoid(rightdiv,"#606060","#990000","5%","55%");
+            DrawRectangle(leftdiv,"#3333FF","55%","5%");
             statediv.style.backgroundColor = "#990000";
-            stateim.src = "img/fractal1hr.jpg";
-            /*stateim.style.display = "block";*/
         }
     }
     else {
@@ -230,37 +345,36 @@ var main = function(){
         var ii = 0;
 
         var id = $(this).attr("id");
-        document.getElementById(id).style.width = "100%";
-        document.getElementById(id).style.height = "100%";
-        document.getElementById(id).style.left = "0px";
-        document.getElementById(id).style.top = "0px";
-        document.getElementById(id).style.borderRadius = "0px";
+        var selected = document.getElementById(id);
+        var newcolor = whichColor(selected);
+        selected.style.backgroundColor = newcolor;
+
+        /*$(this).animate({
+            width: "100%",
+            height: "100%",
+            left: "0px",
+            top: "0px",
+            borderRadius:"0px",
+        },500);*/
+
+        selected.style.width = "100%";
+        selected.style.height = "100%";
+        selected.style.left = "0px";
+        selected.style.top = "0px";
+        selected.style.borderRadius = "0px";
 
         $(this).siblings().css("display","none");
-
-        var pix = document.getElementsByClassName("fractal");
-        pix[0].style.width = "25%";
-        pix[0].style.height = "25%";
-        pix[0].style.left = "50%";
-        pix[0].style.top = "5%";
-
-        pix[1].style.width = "25%";
-        pix[1].style.height = "25%";
-        pix[1].style.left = "50%";
-        pix[1].style.top = "5%";
 
         var paydiv = document.getElementById("outcomescreen");
         var payimg = document.getElementById("Payout");
         var statediv = document.getElementById("statescreen");
-
-        var selectioncolor = document.getElementById(id).style.backgroundColor;
 
         statediv.style.display = "none";
 
         if (active) {
 
             if (counter[8] < trialT1){
-                if (id==='left_A') {
+                if (id==='right_A') {
                     counter[0]++;
                     ii = 1;
                 }
@@ -272,9 +386,9 @@ var main = function(){
 
             else if (counter[8] < trialT1+trialT2) {
                 paydiv.style.display = "block";
-                paydiv.style.backgroundColor = selectioncolor;
-                paydiv.style.height  = "70%";
-                if (id==='left_A') {
+                paydiv.style.backgroundColor = newcolor;
+                paydiv.style.height  = "100%";
+                if (id==='right_A') {
                     counter[2]++;
                     ii = 1;
                     payimg.src = "img/penny.jpg";
@@ -287,8 +401,8 @@ var main = function(){
             }
             else if (counter[8] < trialT1+trialT2+trialT3) {
                 paydiv.style.display = "block";
-                paydiv.style.backgroundColor = selectioncolor;
-                if (id==='left_A') {
+                paydiv.style.backgroundColor = newcolor;
+                if (id==='right_A') {
                     counter[4]++;
                     ii = 1;
                     payimg.src = "img/quarter.jpg";
@@ -301,8 +415,8 @@ var main = function(){
             }
             else if (counter[8] < maxTrials) {
                 paydiv.style.display = "block";
-                paydiv.style.backgroundColor = selectioncolor;
-                 if (id==='left_A') {
+                paydiv.style.backgroundColor = newcolor;
+                 if (id==='right_A') {
                      counter[6]++;
                      ii = 1;
                     payimg.src = "img/fivedollarbill.jpg";
