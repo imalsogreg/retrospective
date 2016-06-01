@@ -54,7 +54,7 @@ div {
 #left_A {
     background-color:#990000;
     width:33%;
-    height:33%;
+    height:66%;
     position:absolute;
     left:10%;
     top:33%;
@@ -70,4 +70,5 @@ div {
     position: absolute;
     left:40%;
     bottom:35%;
+    font-size:7em;
 }
